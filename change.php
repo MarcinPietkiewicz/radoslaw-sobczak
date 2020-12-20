@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
+<h3>before</h3>
 <?php include 'protected/functions.php' ?>
 
 <!-- change contents form -->
@@ -42,7 +42,7 @@
     read_selected_file($file);
   } 
 ?> 
-
+<h4>after</h4>
 
 </body>
 </html>

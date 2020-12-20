@@ -57,6 +57,5 @@ function read_selected_file(){
     echo 'Found and loaded the file: '.$selected_value.' - everything is ok!:<br>';
   }
 }
-}
 ?>
 
