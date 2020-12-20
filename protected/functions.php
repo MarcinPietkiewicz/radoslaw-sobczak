@@ -16,7 +16,7 @@ function read_directory_to_option_list() {
   {
   if (preg_match($file_name_filter, $value))
   {
-    $value_shown = substr($value, 0, 4)."-".substr($value, 4, 2)."-".substr($value, 6, 2)." ".substr($value, 8, 2).":".substr($value, 10, 2).":".substr($value, 12, 2);
+    $value_shown = change_file_datename_to_date($value);
     echo "<option value='$value'>", $value_shown, "</option>", PHP_EOL; 
   }
   } 
@@ -36,17 +36,40 @@ if ($selected_value == ''){
   echo $contents;
   }
 }
-// write form contents in a txt file with date/hour as a name
+
+// read loaded file name
+function read_file_name() {
+  $selected_value = $_POST['filenames'];
+  if ($selected_value == ''){
+    // read newest file per timestamp name
+    $files = scandir('protected/concerts', 1);
+    $file_date_time = change_file_datename_to_date($files[0]).' <b>(current)</b>';
+    echo $file_date_time;
+    }
+    else {
+    $file_date_time = change_file_datename_to_date($selected_value);
+    echo $file_date_time;
+    }
+  }
+
+// helper function to convert datehour txt file name to date and hour for display
+function change_file_datename_to_date($file_name) {
+
+    $value_shown = substr($file_name, 0, 4)."-".substr($file_name, 4, 2)."-".substr($file_name, 6, 2)." ".substr($file_name, 8, 2).":".substr($file_name, 10, 2).":".substr($file_name, 12, 2);
+    return $value_shown;
+}
+
+// write form contents in a txt file with date/hour as a filename
 function write_file() {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $current_date_hour_filename = date("YmdHis").".txt";
   $new_file = fopen('protected/concerts/'.$current_date_hour_filename, "w");
-  $data .= $_POST["concerts"];
+  $data = $_POST["concerts"];
   fwrite($new_file, $data);
   fclose($new_file);
   echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!";
 }}
-// read file contents from select option menu
+// read file contents from selected option menu
 function read_selected_file(){
   $selected_value = $_POST['filenames'];
   if (empty($selected_value))
