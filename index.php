@@ -118,7 +118,7 @@
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>
-		<form method="post" action="protected/change.php"><input type="submit" name="move_me" class="button" value="edytuj..." style="opacity:0.1;"></form></div>
+		<form method="post" action="login.php"><input type="submit" name="move_me" value="2021" style="opacity:0.01;"></form></div>
 	</div>
 	<!--<script src="assets/css3-mediaqueries.js"></script>-->
 	<script src="assets/jquery.min.js"></script>

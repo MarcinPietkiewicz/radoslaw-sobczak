@@ -43,7 +43,7 @@ function read_file_name() {
   if ($selected_value == ''){
     // read newest file per timestamp name
     $files = scandir('protected/concerts', 1);
-    $file_date_time = change_file_datename_to_date($files[0]).' <b>(current)</b>';
+    $file_date_time = change_file_datename_to_date($files[0]).' <b>(najnowsza wersja)</b>';
     echo $file_date_time;
     }
     else {

@@ -7,7 +7,7 @@ $Password = isset($_POST['Password']) ? $_POST['Password'] : '';
 
 if (isset($logins[$Username]) && $logins[$Username] == $Password){
 $_SESSION['Username']=$logins[$Username];
-header("location:edit.php");
+header("location:change.php");
 exit;
 } else {
 $msg="<span style='color:red'>Nieprawidłowe hasło</span>";
