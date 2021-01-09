@@ -80,5 +80,15 @@ function read_selected_file(){
     echo 'Found and loaded the file: '.$selected_value.' - everything is ok!:<br>';
   }
 }
+
+
+//secure login to edit website
+function move_to_edit() {
+  if (array_key_exists('move_me', $_POST)) {
+    // echo "<script>location.replace('protected/change.php')</script>";
+    header('Location: http://www.example.com/');
+  }
+}
+
 ?>
 

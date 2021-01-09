@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Change contents</title>
-  <link rel="stylesheet" href="assets/mystyle.css" type="text/css" />
-  <link rel="stylesheet" href="assets/all.min.css" />
+  <link rel="stylesheet" href="../assets/mystyle.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/all.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@
   <div class="kontener">
     <div id="title">Change concerts:</div>
     <br>
-    <?php include 'protected/functions.php' ?>
+    <?php include 'functions.php' ?>
 
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<?php include 'protected/functions.php' ?>
 	<div class="kontener">
 		<div id="title">Radosław Sobczak</div>
 		<br>
@@ -116,12 +117,14 @@
 			<br />
 		</div>
 		<br><br><br><br><br><br>
-		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a><a href="change.php">&nbsp;&nbsp;</a></div>
+		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>
+		<form method="post" action="protected/change.php"><input type="submit" name="move_me" class="button" value="edytuj..." style="opacity:0.1;"></form></div>
 	</div>
 	<!--<script src="assets/css3-mediaqueries.js"></script>-->
 	<script src="assets/jquery.min.js"></script>
 	<script src="assets/jquery.magnific-popup.min.js"></script>
 	<script src="assets/index.js"></script>
+
 </body>
 
 </html>
