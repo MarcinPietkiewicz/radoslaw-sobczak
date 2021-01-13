@@ -108,6 +108,7 @@ function read_newest_file_to_modal() {
         echo $line.'<br>';
       }
       echo '<br>';
+
     }
   }
 ?>
