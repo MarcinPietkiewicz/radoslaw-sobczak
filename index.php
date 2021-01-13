@@ -20,7 +20,7 @@
 		<nav>
 			<ul>
 				<li><a href="#first-popup" class="first-popup-link">Bio</a></li>
-				<li><a class="simple-ajax-popup" href="assets/concerts.php">Concerts</a></li>
+				<li><a class="simple-ajax-popup" href="concerts.php">Concerts</a></li>
 				<li>
 					<div class="popup-gallery"><a href="assets/radoslaw_sobczak_cd1.jpg" title="Live performances: Bach, Haydn, Chopin, Rachmaninov, Lutosławski">CD</a><a href="assets/radoslaw_sobczak_cd2.jpg" title="Beethoven - Piano Sonatas No. 1, No. 23, No. 32"></a><a href="assets/radoslaw_sobczak_cd3.jpg" title="Paderewski - Utwory fortepianowe"></a><a href="assets/radoslaw_sobczak_cd4.jpg" title="Szymanowski - Utwory fortepianowe"></a>
 				</li>
@@ -112,9 +112,8 @@
 			<p>2002年、初めてのツアーを上海コンサートホールに依頼され、中国の７都市で公演。同年、ポーランドがEUに加盟した際のストラスブールで行われた特別コンサートにて演奏。2007年12月、ワルシャワのオペラ座で行われたニューイヤーガラコンサートに出演。2011年、インコリアン交響楽団40周年記念の際、韓国釜山でチャイコフスキーピアノコンチェルト第一番を録音。これまでに、ポーランド、アメリカ、スイス、チェコ、イスラエル、パレスチナ、オーストラリア、フランス、サウジアラビア、ロシア、イタリア、ドイツ、中国、韓国で演奏。</p>
 			<p>彼はキリスト教徒、複音主義者、長老派の教会、そしてユダヤ教徒の集会で行われるリサイタルなど数多くの場で演奏。</p>
 			<p>2010年から2012年の間、ショパン音楽大学と提携している韓国の大学にて教授を務める。テオドル・レシェティツキ音楽社会ワルシャワの一員。</p>
-			<p>現在、教授の助手としてワルシャワショパン音楽大学で指導をしている。</p>
-			<br />
-			<br />
+			<p>現在、教授の助手としてワルシャワショパン音楽大学で指導をしてい
+a.button {
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>

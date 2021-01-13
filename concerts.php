@@ -8,6 +8,10 @@
     </style>
     <br>
 
+    <?php include 'protected/functions.php'; 
+    read_newest_file_to_modal() ?>
+<br><br>
+<!--
     <p><b>2 May 2018</b></p>
     Legionowo Guildhall - chamber music concert<br>
     Adam Zarzycki, violin<br>
@@ -80,6 +84,6 @@
     Piano recital<br>
 
     Paderewski, Szymanowski<br><br>
-
+-->
 
 </div>

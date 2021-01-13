@@ -80,8 +80,6 @@ function read_selected_file(){
     echo 'Found and loaded the file: '.$selected_value.' - everything is ok!:<br>';
   }
 }
-
-
 //secure login to edit website
 function move_to_edit() {
   if (array_key_exists('move_me', $_POST)) {
@@ -89,6 +87,27 @@ function move_to_edit() {
     header('Location: http://www.example.com/');
   }
 }
-
+// read most current file contents to modal
+function read_newest_file_to_modal() {
+    // read newest file per timestamp name
+    $files = scandir('protected/concerts', 1);
+    $contents = file_get_contents('protected/concerts/'.$files[0]);
+    $concerts = preg_split('/\R{2}/', $contents);
+    foreach ($concerts as $concert)
+    {
+      $lines = preg_split('/\R/', $concert); 
+      $counter = 0;
+      foreach ($lines as $line)
+      {
+        if ($counter == 0)
+        {
+          echo '<p><b>'.$line.'</b></p>';
+          $counter++;
+          continue;
+        }
+        echo $line.'<br>';
+      }
+      echo '<br>';
+    }
+  }
 ?>
-

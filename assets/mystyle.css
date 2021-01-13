@@ -1,8 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-
-
 @font-face {
  font-family: coronet;
  src: url("Coronet-Bd.eot") 
@@ -12,7 +10,6 @@
  src: url("Coronet-Bd.ttf") 
 } 
 
-
 body {
 
 height:100%;
@@ -20,7 +17,6 @@ margin: 0;
 font-family: Arial;
 padding: 0;
 background-color:#000;
-
 }
 
 span.zamazuj
@@ -40,7 +36,6 @@ background:black;
 
 #title
 {
-
 text-align: center;
 font-size:64px;
 margin-bottom:0px;
@@ -50,13 +45,9 @@ font-family:coronet;
 line-height:1;
 }
 
-
-
 nav
 { height: auto
-
 }
-
 
 nav ul
 {
@@ -66,8 +57,6 @@ display: block;
 height: auto;
 margin-left:11%;
 font-family:coronet;
-
-
 }
 
 nav li
@@ -86,7 +75,6 @@ nav li a
 {
 color:#CCC;
 text-decoration:none;
-
 }
 
 nav li a:hover
@@ -168,7 +156,6 @@ display: block; height: 1px;
     margin: 1em 0 1em; padding: 0; 
 }
 
-
     @media screen and (max-width: 616px) 
 	{  
         nav {   
@@ -204,6 +191,4 @@ display: block; height: 1px;
 		height:auto;
 		text-align:center;
 		}
-
-
-			}  
+}  
