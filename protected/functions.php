@@ -75,7 +75,7 @@ function read_selected_file(){
   if (empty($selected_value))
   {
     echo 'Error... file not found, loaded newest version to the text area...<br>Please choose a file from the list.';
-  } 
+  }
   else {
     echo 'Found and loaded the file: '.$selected_value.' - everything is ok!:<br>';
   }

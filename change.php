@@ -3,8 +3,41 @@ if(!isset($_SESSION['Username'])){
 header("location:login.php");
 exit;
 }
-?>
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\SMTP;
+  use PHPMailer\PHPMailer\Exception;
+  echo 'php mailer is used';
+  if (isset($_POST['submit'])){
+    echo 'if is set php mailer is used';
 
+    require 'protected/PHPMailer/PHPMailer.php';
+    require 'protected/PHPMailer/SMTP.php';
+    require 'protected/PHPMailer/Exception.php';
+    // try {
+        date_default_timezone_set("Europe/Warsaw");
+        $mail = new PHPMailer;
+        $mail->Host = "s30.ehost.pl";
+        $mail->SMTPAuth = "true";
+        $mail->SMTPSecure = "tls";
+        $mail->Port = "587";
+        $mail->CharSet = 'UTF-8';
+        $mail->Username = "updaterr@radoslawsobczak.com";
+        $mail->Password = "Radzio1rr";
+        $mail->isHTML(true);
+        $mail->setFrom('updaterr@radoslawsobczak.com');
+        $mail->addAddress('pietkiewiczm@o2.pl');
+        $mail->addReplyTo('updaterr@radoslawsobczak.com');
+        $mail->Subject = 'Strona radoslawsobczak.com pomyślnie zaktualizowana!';
+        $mail->Body = '<p>testing '.$_POST['fName'].' '.$_POST['lName'].',</p>';
+        $mail->send();
+        sleep(1);
+        header('Location: http://www.radoslawsobczak.com/test2');
+    // }
+    // catch (Exception $e) {
+    //     header('Location: http://www.radoslawsobczak.com/test2/error.php');
+    // }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +67,7 @@ exit;
     </form>
 
     <form method="post">
-      <br><input type="submit" name="read_dir" class="button" value="Odśwież listę plików" /> <br>
+      <br><input type="submit" name="read_dir" class="button" value="Odśwież listę plików i wczytaj najnowszą wersję" /> <br>
       <select id="filenames" name="filenames">
         <option value="">Wybierz z listy...</option>
         <?php
