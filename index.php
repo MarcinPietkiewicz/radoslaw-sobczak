@@ -117,7 +117,7 @@ a.button {
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>
-		<form method="post" action="login.php"><input type="submit" name="move_me" value="2021" style="opacity:0.01;"></form></div>
+		<div><a href="http://radoslawsobczak.com/test2/login.php">.</>
 	</div>
 	<!--<script src="assets/css3-mediaqueries.js"></script>-->
 	<script src="assets/jquery.min.js"></script>
