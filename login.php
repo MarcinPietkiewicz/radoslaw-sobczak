@@ -1,10 +1,8 @@
 <?php 
-// include 'protected/password.php';
+include 'protected/password.php';
 session_start();
 if(isset($_POST['Submit'])){
-// $logins = array($login_name => $login_pass);
-$logins = array('Alex' => "1234567");
-
+$logins = array($login_name => $login_pass);
 
 $Username = isset($_POST['Username']) ? $_POST['Username'] : '';
 $Password = isset($_POST['Password']) ? $_POST['Password'] : '';
