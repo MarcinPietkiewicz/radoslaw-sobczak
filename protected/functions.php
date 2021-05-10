@@ -1,5 +1,4 @@
 <?php 
-
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
@@ -40,12 +39,10 @@ if ($selected_value == ''){
   echo $contents;
   }
 }
-
 // alert message php function
 function function_alert($msg) {
   echo "<script type='text/javascript'>('$msg');</script>";
 }
-
 // read loaded file name
 function read_file_name() {
   $selected_value = $_POST['filenames'];
@@ -60,14 +57,12 @@ function read_file_name() {
     echo $file_date_time;
     }
   }
-
 // helper function to convert datehour txt file name to date and hour for display
 function change_file_datename_to_date($file_name) {
 
     $value_shown = substr($file_name, 0, 4)."-".substr($file_name, 4, 2)."-".substr($file_name, 6, 2)." ".substr($file_name, 8, 2).":".substr($file_name, 10, 2).":".substr($file_name, 12, 2);
     return $value_shown;
 }
-
 // write form contents in a txt file with date/hour as a filename
 function write_file() {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -76,8 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = $_POST["concerts"];
   fwrite($new_file, $data);
   fclose($new_file);
-  // function_alert("wysyłam...");
-  // send_confirmation_email();
   echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!";
 }}
 // read file contents from selected option menu
@@ -121,7 +114,6 @@ function read_newest_file_to_modal() {
 
     }
   }
-
 // send confirmation email
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -142,8 +134,8 @@ function send_confirmation_email() {
       $mail->setFrom($email_username);
       $mail->addAddress($email_to);
       $mail->addReplyTo($email_username);
-      $mail->Subject = 'strona radoslawsobczak.com pomyślnie zaktualizowana!';
-      $mail->Body = '<p>testing '.$_POST['fName'].' '.$_POST['lName'].',</p>';
+      $mail->Subject = 'Strona radoslawsobczak.com pomyślnie zaktualizowana!';
+      $mail->Body = '<p>Dokonane zmiany:</p><p>'.$_POST['concerts'].'</p><p>Zmiany pomyślnie zapisane na serwerze.</p>';
       $mail->send();
       sleep(1);
     }
