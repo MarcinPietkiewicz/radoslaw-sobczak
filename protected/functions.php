@@ -114,12 +114,36 @@ function read_newest_file_to_modal() {
 
     }
   }
+
+// convert events file text to html
+function convert_events_text_to_html($obj) {
+  $html = '';
+  $text = preg_split('/\R{2}/', $obj);
+  foreach ($text as $event)
+  {
+    $lines = preg_split('/\R/', $event); 
+    $counter = 0;
+    foreach ($lines as $line)
+    {
+      if ($counter == 0)
+      {
+        $html .= '<p><b>'.$line.'</b></p>';
+        $counter++;
+        continue;
+      }
+      $html .= $line.'<br>';
+    }
+  }
+  return $html;
+}
+  
 // send confirmation email
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 function send_confirmation_email() {
   require 'password.php';
+  $html = convert_events_text_to_html($_POST['concerts']);
   try {
       date_default_timezone_set("Europe/Warsaw");
       $mail = new PHPMailer;
@@ -135,7 +159,7 @@ function send_confirmation_email() {
       $mail->addAddress($email_to);
       $mail->addReplyTo($email_username);
       $mail->Subject = 'Strona radoslawsobczak.com pomyślnie zaktualizowana!';
-      $mail->Body = '<p>Dokonane zmiany:</p><p>'.$_POST['concerts'].'</p><p>Zmiany pomyślnie zapisane na serwerze.</p>';
+      $mail->Body = '<p>Potwierdzenie dokonanych zmian na stronie:</p>'.$html.'<br><br><p>---------------------<br>Zmiany pomyślnie zapisane na serwerze.</p>';
       $mail->send();
       sleep(1);
     }
