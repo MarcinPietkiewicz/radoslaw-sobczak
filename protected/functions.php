@@ -1,4 +1,8 @@
 <?php 
+
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php';
 // read files from catalog to option list
 function read_directory_to_option_list() {
   $files = scandir('protected/concerts');
@@ -37,6 +41,11 @@ if ($selected_value == ''){
   }
 }
 
+// alert message php function
+function function_alert($msg) {
+  echo "<script type='text/javascript'>('$msg');</script>";
+}
+
 // read loaded file name
 function read_file_name() {
   $selected_value = $_POST['filenames'];
@@ -67,6 +76,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = $_POST["concerts"];
   fwrite($new_file, $data);
   fclose($new_file);
+  // function_alert("wysyłam...");
+  // send_confirmation_email();
   echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!";
 }}
 // read file contents from selected option menu
@@ -83,7 +94,6 @@ function read_selected_file(){
 //secure login to edit website
 function move_to_edit() {
   if (array_key_exists('move_me', $_POST)) {
-    // echo "<script>location.replace('protected/change.php')</script>";
     header('Location: http://www.example.com/');
   }
 }
@@ -109,6 +119,36 @@ function read_newest_file_to_modal() {
       }
       echo '<br>';
 
+    }
+  }
+
+// send confirmation email
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+function send_confirmation_email() {
+  try {
+      date_default_timezone_set("Europe/Warsaw");
+      $mail = new PHPMailer;
+      $mail->Host = "s30.ehost.pl";
+      $mail->SMTPAuth = "true";
+      $mail->SMTPSecure = "tls";
+      $mail->Port = "587";
+      $mail->CharSet = 'UTF-8';
+      $mail->Username = "update@radoslawsobczak.com";
+      $mail->Password = "Radzio1";
+      $mail->isHTML(true);
+      $mail->setFrom('update@radoslawsobczak.com');
+      $mail->addAddress('pietkiewiczm@o2.pl');
+      $mail->addReplyTo('update@radoslawsobczak.com');
+      $mail->Subject = 'SStrona radoslawsobczak.com pomyślnie zaktualizowana!';
+      $mail->Body = '<p>testing '.$_POST['fName'].' '.$_POST['lName'].',</p>';
+      $mail->send();
+      sleep(1);
+    }
+        catch (Exception $e) {
+        function_alert("Coś poszło nie tak z wysyłką");
+        header('Location: http://www.radoslawsobczak.com/test2/error.php');
     }
   }
 ?>

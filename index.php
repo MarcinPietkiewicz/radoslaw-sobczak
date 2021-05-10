@@ -117,7 +117,7 @@ a.button {
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>
-		<div><a href="http://radoslawsobczak.com/test2/login.php">.</>
+		<div><a href="http://radoslawsobczak.com/test2/login.php">Login</>
 	</div>
 	<!--<script src="assets/css3-mediaqueries.js"></script>-->
 	<script src="assets/jquery.min.js"></script>
