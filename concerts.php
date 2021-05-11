@@ -9,6 +9,6 @@
     <br>
 
     <?php include 'protected/functions.php'; 
-    read_newest_file_to_modal() ?>
+    read_file_to_concert_modal() ?>
 <br>
 </div>

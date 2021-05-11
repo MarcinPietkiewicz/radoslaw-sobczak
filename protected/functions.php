@@ -3,8 +3,9 @@ require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
 // read files from catalog to option list
-function read_directory_to_option_list() {
-  $files = scandir('protected/concerts');
+function read_directory_to_option_list($catalog = 'concerts') {
+  // $files = scandir('protected/concerts');
+  $files = scandir('protected/'.$catalog);
   // ommit . and .. from catalog items and display only 8 most recent files
   $arr_length = count($files);
   if ($arr_length>10){
@@ -24,31 +25,29 @@ function read_directory_to_option_list() {
   }
   } 
 }
+
 // read file contents
-function read_file() {
+function read_file($catalog = 'concerts') {
 $selected_value = $_POST['filenames'];
 if ($selected_value == ''){
   // read newest file per timestamp name
-  $files = scandir('protected/concerts', 1);
-  $contents = file_get_contents('protected/concerts/'.$files[0]);
+  $files = scandir('protected/'.$catalog, 1);
+  $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
   echo $contents;
   }
   else {
-  $path = 'protected/concerts/'.$selected_value;
+  $path = 'protected/'.$catalog.'/'.$selected_value;
   $contents = file_get_contents($path);
   echo $contents;
   }
 }
-// alert message php function
-function function_alert($msg) {
-  echo "<script type='text/javascript'>('$msg');</script>";
-}
+
 // read loaded file name
-function read_file_name() {
+function read_file_name($catalog = 'concerts') {
   $selected_value = $_POST['filenames'];
   if ($selected_value == ''){
     // read newest file per timestamp name
-    $files = scandir('protected/concerts', 1);
+    $files = scandir('protected/'.$catalog, 1);
     $file_date_time = change_file_datename_to_date($files[0]).' <b>(najnowsza wersja)</b>';
     echo $file_date_time;
     }
@@ -64,11 +63,11 @@ function change_file_datename_to_date($file_name) {
     return $value_shown;
 }
 // write form contents in a txt file with date/hour as a filename
-function write_file() {
+function write_file($catalog = 'concerts', $input = "concerts") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $current_date_hour_filename = date("YmdHis").".txt";
-  $new_file = fopen('protected/concerts/'.$current_date_hour_filename, "w");
-  $data = $_POST["concerts"];
+  $new_file = fopen('protected/'.$catalog.'/'.$current_date_hour_filename, "w");
+  $data = $_POST[$input];
   fwrite($new_file, $data);
   fclose($new_file);
   echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!";
@@ -91,10 +90,10 @@ function move_to_edit() {
   }
 }
 // read most current file contents to modal
-function read_newest_file_to_modal() {
+function read_file_to_concert_modal($catalog = 'concerts') {
     // read newest file per timestamp name
-    $files = scandir('protected/concerts', 1);
-    $contents = file_get_contents('protected/concerts/'.$files[0]);
+    $files = scandir('protected/'.$catalog, 1);
+    $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
     $concerts = preg_split('/\R{2}/', $contents);
     foreach ($concerts as $concert)
     {
@@ -164,7 +163,6 @@ function send_confirmation_email() {
       sleep(1);
     }
         catch (Exception $e) {
-        function_alert("Coś poszło nie tak z wysyłką");
         header('Location: http://www.radoslawsobczak.com/test2/error.php');
     }
   }

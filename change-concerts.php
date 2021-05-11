@@ -33,7 +33,7 @@ exit;
       <select id="filenames" name="filenames">
         <option value="">Wybierz z listy...</option>
         <?php
-        read_directory_to_option_list();
+        read_directory_to_option_list('concerts');
         ?>
       </select>
       <input type="submit" name="read_selected_file" class="button" value="Wczytaj" /><br><br>
