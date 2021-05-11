@@ -24,7 +24,7 @@
 				<li>
 					<div class="popup-gallery"><a href="assets/radoslaw_sobczak_cd1.jpg" title="Live performances: Bach, Haydn, Chopin, Rachmaninov, Lutosławski">CD</a><a href="assets/radoslaw_sobczak_cd2.jpg" title="Beethoven - Piano Sonatas No. 1, No. 23, No. 32"></a><a href="assets/radoslaw_sobczak_cd3.jpg" title="Paderewski - Utwory fortepianowe"></a><a href="assets/radoslaw_sobczak_cd4.jpg" title="Szymanowski - Utwory fortepianowe"></a>
 				</li>
-				<li><a class="simple-ajax-popup" href="contact.html">Contact</a></li>
+				<li><a class="simple-ajax-popup" href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
 		<div class="zdjecie"><img src="assets/radek.jpg" /></div>

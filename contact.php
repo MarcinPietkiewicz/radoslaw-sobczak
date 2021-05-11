@@ -5,7 +5,12 @@
     </style>
     <br>
 
-<div>
+    <?php include 'protected/functions.php'; 
+    read_file_to_concert_modal('contact') ?>
+<br>
+</div>
+
+<!-- <div>
 <div id="address1">Radosław Sobczak</div>
 <br>
 <div id="address1-edit1">czak@<span class="zamazuj">wykasuj</span>hotmail.com</div>
@@ -18,8 +23,4 @@
 <div id="address2-edit3">Instagram:</div>
 <br>
 <hr>
- 
- 
-
-
-</div>
+</div> -->

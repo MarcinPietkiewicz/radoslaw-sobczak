@@ -9,6 +9,6 @@
     <br>
 
     <?php include 'protected/functions.php'; 
-    read_file_to_concert_modal() ?>
+    read_file_to_concert_modal('concerts') ?>
 <br>
 </div>

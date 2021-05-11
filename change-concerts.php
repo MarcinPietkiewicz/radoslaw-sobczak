@@ -22,9 +22,9 @@ exit;
 
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <label for="concerts" style="color:white;">Wersja - <?php read_file_name(); ?></label><br><br>
+      <label for="concerts" style="color:white;">Wersja - <?php read_file_name('concerts'); ?></label><br><br>
       <textarea id="concerts" name="concerts" rows="30" cols="60"><?php
-                                                                  read_file();
+                                                                  read_file('concerts');
                                                                   ?></textarea><br>
       <input type="submit" name="change" class="button" value="Zapisz zmiany" />
     </form>
@@ -43,7 +43,7 @@ exit;
     <?php
     if (array_key_exists('read_dir', $_POST)) {
     } else if (array_key_exists('change', $_POST)) {
-      write_file();
+      write_file('concerts','concerts');
       send_confirmation_email();
     } else if (array_key_exists('read_selected_file', $_POST)) {
       read_selected_file();

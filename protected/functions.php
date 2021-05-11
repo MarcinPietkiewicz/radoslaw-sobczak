@@ -63,7 +63,7 @@ function change_file_datename_to_date($file_name) {
     return $value_shown;
 }
 // write form contents in a txt file with date/hour as a filename
-function write_file($catalog = 'concerts', $input = "concerts") {
+function write_file($catalog, $input) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $current_date_hour_filename = date("YmdHis").".txt";
   $new_file = fopen('protected/'.$catalog.'/'.$current_date_hour_filename, "w");

@@ -22,10 +22,11 @@ exit;
 
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <label for="concerts" style="color:white;">Wersja - <?php read_file_name(); ?></label><br><br>
-      <textarea id="concerts" name="concerts" rows="30" cols="60"><?php
-                                                                  read_file();
-                                                                  ?></textarea><br>
+    <label for="contacts" style="color:white;">Wersja - <?php read_file_name('contact'); ?></label><br><br>
+    <textarea id="contacts" name="contacts" rows="8" cols="60">
+    <?php
+      read_file('contact');
+      ?></textarea><br>
       <input type="submit" name="change" class="button" value="Zapisz zmiany" />
     </form>
     <form method="post">
@@ -33,8 +34,7 @@ exit;
       <select id="filenames" name="filenames">
         <option value="">Wybierz z listy...</option>
         <?php
-        $catalog = 'contact';
-        read_directory_to_option_list();
+        read_directory_to_option_list('contact');
         ?>
       </select>
       <input type="submit" name="read_selected_file" class="button" value="Wczytaj" /><br><br>
@@ -44,7 +44,7 @@ exit;
     <?php
     if (array_key_exists('read_dir', $_POST)) {
     } else if (array_key_exists('change', $_POST)) {
-      write_file();
+      write_file('contact','contacts');
       send_confirmation_email();
     } else if (array_key_exists('read_selected_file', $_POST)) {
       read_selected_file();
