@@ -34,6 +34,19 @@ position:relative;
 background:black;
 }
 
+.under{
+width:100%;
+margin:150px auto; 
+display: flex;
+justify-content: center;
+}
+
+h2
+{
+    font-family: arial, sans-serif;
+    color:white;
+}
+
 #title
 {
 text-align: center;
