@@ -113,9 +113,9 @@ function read_file_to_concert_modal($catalog = 'concerts') {
     }
   }
 // convert events file text to html
-function convert_events_text_to_html($obj) {
+function convert_events_text_to_html($post_obj) {
   $html = '';
-  $text = preg_split('/\R{2}/', $obj);
+  $text = preg_split('/\R{2}/', $post_obj);
   foreach ($text as $event)
   {
     $lines = preg_split('/\R/', $event); 
@@ -137,9 +137,10 @@ function convert_events_text_to_html($obj) {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-function send_confirmation_email($catalog = '') {
+function send_confirmation_email($post_obj = '') {
   require 'password.php';
-  $html = convert_events_text_to_html($_POST[$catalog]);
+  $utf8_text = mb_convert_encoding($_POST[$post_obj], 'HTML-ENTITIES', "UTF-8");
+  $html = convert_events_text_to_html($utf8_text);
   try {
       date_default_timezone_set("Europe/Warsaw");
       $mail = new PHPMailer;
