@@ -68,7 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = $_POST[$input];
   fwrite($new_file, $data);
   fclose($new_file);
-  echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!";
+  echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!<br>";
+  if ($_POST['email']){
+  echo "Dodatkowy mejl wysłany na adres: ".$_POST['email'];
+  }
+  else {
+    echo "Nie wysłano dodatkowego mejla";
+  }
 }}
 // read file contents from selected option menu
 function read_selected_file(){
@@ -139,6 +145,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 function send_confirmation_email($post_obj = '') {
   require 'password.php';
+  // $additional_email = $_POST['email'] ? $_POST['email'] : '';
+  $additional_email = $_POST['email'] ? $_POST['email'] : false;
   $utf8_text = mb_convert_encoding($_POST[$post_obj], 'HTML-ENTITIES', "UTF-8");
   $html = convert_events_text_to_html($utf8_text);
   try {
@@ -154,6 +162,9 @@ function send_confirmation_email($post_obj = '') {
       $mail->isHTML(true);
       $mail->setFrom($email_username);
       $mail->addAddress($email_to);
+      if ($additional_email){
+      $mail->addCC($additional_email);
+      }
       $mail->addReplyTo($email_username);
       $mail->Subject = 'Strona radoslawsobczak.com pomyślnie zaktualizowana!';
       $mail->Body = '<p>Potwierdzenie dokonanych zmian na stronie:</p>'.$html.'<br><br><p>---------------------<br>Zmiany pomyślnie zapisane na serwerze.</p>';

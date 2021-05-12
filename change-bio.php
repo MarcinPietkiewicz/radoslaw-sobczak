@@ -23,10 +23,12 @@ exit;
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <label for="bio" style="color:white;">Wersja - <?php read_file_name('bio'); ?></label><br><br>
-      <textarea id="bio" name="bio" rows="30" cols="60"><?php
+      <textarea id="bio" style="width:100%" name="bio" rows="30" cols="60"><?php
                                                                   read_file('bio');
                                                                   ?></textarea><br>
-      <input type="submit" name="change" class="button" value="Zapisz zmiany" />
+      <label style="color:white;" for="email">Podaj mejla na który przesłać potwierdzenie:</label>
+      <input style="width:60%;" id="email" name="email" type="text"><br><br>
+      <input style="width:100%;" type="submit" name="change" class="button" value="Zapisz zmiany i wyślij potwierdzenie mejlem" /><br>
     </form>
     <form method="post">
       <br><input type="submit" name="read_dir" class="button" value="Odśwież listę plików i wczytaj najnowszą wersję" /> <br>
