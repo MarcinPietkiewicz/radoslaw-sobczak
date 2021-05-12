@@ -44,7 +44,7 @@
 			<p>He is a member of the Theodor Leszetycki Music Society in Warsaw.</p>
 			<p>In 2010-2012, he was a professor at the Keimyung-Chopin University in Daegu, South Korea. Since 2008, he has been a lecturer at the Fryderyk Chopin University in Warsaw and since 2012, a teacher of a piano class at the Szymanowski State Music School Complex No. 4 in Warsaw.</p>
 			<br /> -->
-		<?php get_bio('ENG') ?>
+		<?php html_bio_from_txt_file('ENG') ?>
 
 
 		</div>
@@ -65,7 +65,7 @@
 			<p>Jest członkiem Towarzystwa Muzycznego im.Teodora Leszetyckiego w Warszawie.</p>
 			<p>W latach 2010- 2012 był profesorem na Keimyung-Chopin University w Daegu w Korei Południowej. Od 2008 roku jest wykłądowcą na Uniwersytecie Muzycznym Fryderyka Chopina w Warszawie, a od 2012 roku pedagogiem w klasie fortepianu w Zespole Państwowych Szkół Muzycznych nr 4 w Warszawie.</p>
 			<br /> -->
-			<?php get_bio('POL') ?>
+			<?php html_bio_from_txt_file('POL') ?>
 
 		</div>
 		<!-- Contents of third window -->
@@ -88,7 +88,7 @@
 			<p>그는 폴란드 테오도르 레쉐티츠키 음악협회 회원이며
 				현재 바르샤바 국립 쇼팽 음악대학교에서 조교수로 재직중이다.</p>
 			<br> -->
-			<?php get_bio('KOR') ?>
+			<?php html_bio_from_txt_file('KOR') ?>
 
 		</div>
 		<!-- Contents of fourth window -->
@@ -105,7 +105,7 @@
 			<p>2011年在釜山第40届韩国交响乐纪念音乐会上，留下了他的柴可夫斯基第一钢琴协奏曲的演奏录音。他的巡演足迹遍布波兰，美国，瑞士，捷克，以色列，巴勒斯坦，澳大利亚，法国，沙特阿拉伯，俄罗斯，意大利，德国，中国和韩国。索怕恰克还在天主教，福音，基督长老会，以及犹太教堂等各类教堂中有过独奏音乐会。</p>
 			<p>在2010-2012期间他曾被交换到韩国大邱启明-肖邦大学中作为教授执教，现在他是华沙肖邦音乐大学的一名助理教授。</p>
 			<br /> -->
-			<?php get_bio('CHI') ?>
+			<?php html_bio_from_txt_file('CHI') ?>
 
 		</div>
 		<!-- Contents of fifth window -->
@@ -123,7 +123,7 @@
 			<p>2010年から2012年の間、ショパン音楽大学と提携している韓国の大学にて教授を務める。テオドル・レシェティツキ音楽社会ワルシャワの一員。</p>
 			<p>現在、教授の助手としてワルシャワショパン音楽大学で指導をしている。</p>
 			<br /> -->
-			<?php get_bio('JPN') ?>
+			<?php html_bio_from_txt_file('JPN') ?>
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>

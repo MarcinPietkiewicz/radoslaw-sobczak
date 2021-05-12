@@ -32,6 +32,7 @@ if ($selected_value == ''){
   // read newest file per timestamp name
   $files = scandir('protected/'.$catalog, 1);
   $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
+  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
   echo $contents;
   }
   else {
@@ -91,6 +92,7 @@ function read_file_to_concert_modal($catalog = 'concerts') {
     // read newest file per timestamp name
     $files = scandir('protected/'.$catalog, 1);
     $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
+    $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
     $sections = preg_split('/\R{2}/', $contents);
     foreach ($sections as $section)
     {
@@ -163,8 +165,37 @@ function send_confirmation_email($catalog = '') {
   }
 
 
-function get_bio($language){
-  echo ('działa - '.$language);
+function html_bio_from_txt_file($language = '', $catalog = 'bio'){
+  // read newest file per timestamp name
+  $files = scandir('protected/'.$catalog, 1);
+  $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
+  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
+  
+  $sections = preg_split('/\R{2}/', $contents);
+  echo '<br>';
+  foreach ($sections as $section)
+  {
+    $lines = preg_split('/\R/', $section); 
+    $languagetxt = '#'.$language."#";
+    if ($lines[0] == $languagetxt){
+      $counter = 0;
+      foreach ($lines as $line)
+      {
+        if ($counter == 0){
+        $counter++;
+        continue;
+        }
+        if ($counter == 1)
+        {
+          echo '<h1>'.$line.'</h1>';
+          $counter++;
+          continue;
+        }
+        echo '<p>'.$line.'</p>';
+      }
+    }
+  }
+  echo '<br>';
 }
 
 
