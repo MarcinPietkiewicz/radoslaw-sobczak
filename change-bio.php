@@ -39,6 +39,7 @@ exit;
       <input type="submit" name="read_selected_file" class="button" value="Wczytaj" /><br><br>
     </form>
     <a class="button" href="logout.php">Wyloguj...</a>
+    <a class="button" href="menu.php">Powrót do menu</a>
     <br><br>
     <?php
     if (array_key_exists('read_dir', $_POST)) {
