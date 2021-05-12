@@ -45,7 +45,7 @@ exit;
     if (array_key_exists('read_dir', $_POST)) {
     } else if (array_key_exists('change', $_POST)) {
       write_file('contact','contacts');
-      send_confirmation_email();
+      send_confirmation_email('contacts');
     } else if (array_key_exists('read_selected_file', $_POST)) {
       read_selected_file();
     } 

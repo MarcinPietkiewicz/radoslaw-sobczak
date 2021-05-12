@@ -25,7 +25,6 @@ function read_directory_to_option_list($catalog = 'concerts') {
   }
   } 
 }
-
 // read file contents
 function read_file($catalog = 'concerts') {
 $selected_value = $_POST['filenames'];
@@ -41,7 +40,6 @@ if ($selected_value == ''){
   echo $contents;
   }
 }
-
 // read loaded file name
 function read_file_name($catalog = 'concerts') {
   $selected_value = $_POST['filenames'];
@@ -58,7 +56,6 @@ function read_file_name($catalog = 'concerts') {
   }
 // helper function to convert datehour txt file name to date and hour for display
 function change_file_datename_to_date($file_name) {
-
     $value_shown = substr($file_name, 0, 4)."-".substr($file_name, 4, 2)."-".substr($file_name, 6, 2)." ".substr($file_name, 8, 2).":".substr($file_name, 10, 2).":".substr($file_name, 12, 2);
     return $value_shown;
 }
@@ -94,10 +91,10 @@ function read_file_to_concert_modal($catalog = 'concerts') {
     // read newest file per timestamp name
     $files = scandir('protected/'.$catalog, 1);
     $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
-    $concerts = preg_split('/\R{2}/', $contents);
-    foreach ($concerts as $concert)
+    $sections = preg_split('/\R{2}/', $contents);
+    foreach ($sections as $section)
     {
-      $lines = preg_split('/\R/', $concert); 
+      $lines = preg_split('/\R/', $section); 
       $counter = 0;
       foreach ($lines as $line)
       {
@@ -113,7 +110,6 @@ function read_file_to_concert_modal($catalog = 'concerts') {
 
     }
   }
-
 // convert events file text to html
 function convert_events_text_to_html($obj) {
   $html = '';
@@ -135,14 +131,13 @@ function convert_events_text_to_html($obj) {
   }
   return $html;
 }
-  
 // send confirmation email
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-function send_confirmation_email() {
+function send_confirmation_email($catalog = '') {
   require 'password.php';
-  $html = convert_events_text_to_html($_POST['concerts']);
+  $html = convert_events_text_to_html($_POST[$catalog]);
   try {
       date_default_timezone_set("Europe/Warsaw");
       $mail = new PHPMailer;

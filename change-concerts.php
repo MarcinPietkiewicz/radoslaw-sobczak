@@ -44,7 +44,7 @@ exit;
     if (array_key_exists('read_dir', $_POST)) {
     } else if (array_key_exists('change', $_POST)) {
       write_file('concerts','concerts');
-      send_confirmation_email();
+      send_confirmation_email('concerts');
     } else if (array_key_exists('read_selected_file', $_POST)) {
       read_selected_file();
     } 
