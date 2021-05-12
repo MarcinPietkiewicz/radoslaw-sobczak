@@ -22,21 +22,11 @@ exit;
     <ul>
     <li><a href="change-concerts.php">Program koncertów</a></li>
     <li><a href="change-contact.php">Dane kontaktowe</a></li>
-    <li><a href="change-bio.php">Bio</a></li>
+    <li><a href="change-bio.php">Biografia</a></li>
     </ul>
 </nav>
 </div>
 <div class="under"><a class="button" href="logout.php">Wyloguj...</a></div>
 
-  <?php
-    include 'protected/functions.php'; 
-    if (array_key_exists('read_dir', $_POST)) {
-    } else if (array_key_exists('change', $_POST)) {
-      write_file();
-      send_confirmation_email();
-    } else if (array_key_exists('read_selected_file', $_POST)) {
-      read_selected_file();
-    } 
-    ?>
 </body>
 </html>
