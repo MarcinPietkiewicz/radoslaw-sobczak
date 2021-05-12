@@ -32,7 +32,7 @@
 		<div id="first-popup" class="mfp-hide white-popup">
 			<div class="jezyki">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<br>
+			<!-- <br>
 			<h1>Radoslaw Sobczak</h1>
 			<p>was born in 1981 in Pisz, where he also began to learn to play the piano at the State Primary Music School in the class of Ewa Sulewska. Then, for five years, he continued his education at the Fryderyk Chopin Primary and Secondary State Music in Olsztyn under the direction of Ilona Dworecka – Staszewska. He obtained a diploma and baccalaureate at the Karol Szymanowski Music High School in Warsaw under Prof. Bronisława Kawalla in 2000.</p>
 			<p>In 2006 he graduated from the Fryderyk Chopin University of Music in Warsaw in the piano class of Prof. Edward Wolanin and in chamber music class of Prof. Maciej Paderewski. He completed his studies with Prof. Victor Macarov.</p>
@@ -43,13 +43,16 @@
 			<p>In the same year, the Senate of Republic of Poland, in cooperation with Polish Radio, included his recording of Paderewski’s Sonata in its project: CD – Senate of Republic of Poland regaining its independence.</p>
 			<p>He is a member of the Theodor Leszetycki Music Society in Warsaw.</p>
 			<p>In 2010-2012, he was a professor at the Keimyung-Chopin University in Daegu, South Korea. Since 2008, he has been a lecturer at the Fryderyk Chopin University in Warsaw and since 2012, a teacher of a piano class at the Szymanowski State Music School Complex No. 4 in Warsaw.</p>
-			<br />
+			<br /> -->
+		<?php get_bio('ENG') ?>
+
+
 		</div>
 		<!-- Contents of second window -->
 		<div id="second-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG </a>| POL
 				<a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<br>
+			<!-- <br>
 			<h1>Radosław Sobczak</h1>
 			<p>urodził się w 1981 roku w Piszu, tam też rozpoczął naukę gry na fortepianie w Państwowej Szkole Muzycznej I stopnia u Ewy Sulewskiej. Następnie przez pięć lat kształcił się w Państwowej Szkole Muzycznej I i II stopnia im. Fryderyka Chopina w Olsztynie pod kierunkiem Ilony Dworeckiej – Staszewskiej. Dyplom oraz maturę uzyskał w Liceum Muzycznym im. Karola Szymanowskiego w Warszawie u prof. Bronisławy Kawalla w 2000 roku.</p>
 			<p>W 2006 roku ukończył studia na Uniwersytecie Muzycznym Fryderyka Chopina w Warszawie, w klasie fortepianu prof. Edwarda Wolanina, oraz klasie kameralistyki prof. Macieja Paderewskiego. Studia uzupełnił u prof. Victora Macarova.</p>
@@ -61,13 +64,15 @@
 			<p>W tym samym roku, Senat Rzeczypospolitej Polskiej, przy współpracy z Polskim Radiem, umieścił jego nagranie Sonaty Paderewskiego w swoim projekcie: Płyta CD – Senat RP na stulecie odzyskania niepodległości.</p>
 			<p>Jest członkiem Towarzystwa Muzycznego im.Teodora Leszetyckiego w Warszawie.</p>
 			<p>W latach 2010- 2012 był profesorem na Keimyung-Chopin University w Daegu w Korei Południowej. Od 2008 roku jest wykłądowcą na Uniwersytecie Muzycznym Fryderyka Chopina w Warszawie, a od 2012 roku pedagogiem w klasie fortepianu w Zespole Państwowych Szkół Muzycznych nr 4 w Warszawie.</p>
-			<br />
+			<br /> -->
+			<?php get_bio('POL') ?>
+
 		</div>
 		<!-- Contents of third window -->
 		<div id="third-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| KOR | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<br>
+			<!-- <br>
 			<h1>Radosław Sobczak</h1>
 			<p>피아니스트 라도스와브 솝착은 1981년에 폴란드 도시 Pisz에서 태어났다.</p>
 			<p>그는 폴란드 국립 쇼팽 음악대학교에서 에드워드 볼라닌 교수를 사사하며 졸업하였다. 또한 빅터 마카로프 교수를 사사하였고 전액 장학금을 받으며 피아노 교육을 성공적으로 이수하였다.</p>
@@ -82,13 +87,15 @@
 			<p>2010년부터 2012년까지 대구 계명-쇼팽음악대학교에서 교환교수로 학생들을 가르쳤다.</p>
 			<p>그는 폴란드 테오도르 레쉐티츠키 음악협회 회원이며
 				현재 바르샤바 국립 쇼팽 음악대학교에서 조교수로 재직중이다.</p>
-			<br>
+			<br> -->
+			<?php get_bio('KOR') ?>
+
 		</div>
 		<!-- Contents of fourth window -->
 		<div id="fourth-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | CHI | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<br>
+			<!-- <br>
 			<h1>Radosław Sobczak</h1>
 			<p>拉多斯瓦夫.索帕恰克</p>
 			<p>1981出生于年波兰匹兹，毕业于华沙肖邦音乐大学，师从教授Edward Wolanin, 学业期间拿到了教授Victor Macarow 全额奖学金。</p>
@@ -97,13 +104,15 @@
 			<p>2001年在上海音乐厅参加了由龚学平先生题词的肖邦情系列钢琴独奏音乐会，次年受上海演出公司的邀请在中国各地巡演，分别在中国的七座城市成功举办了他的钢琴独奏会。他也曾演奏于2003年在史特拉斯堡当波兰加入欧盟时的特别音乐会以及2007年12月在波兰华沙国家大剧院的新年音乐会上。</p>
 			<p>2011年在釜山第40届韩国交响乐纪念音乐会上，留下了他的柴可夫斯基第一钢琴协奏曲的演奏录音。他的巡演足迹遍布波兰，美国，瑞士，捷克，以色列，巴勒斯坦，澳大利亚，法国，沙特阿拉伯，俄罗斯，意大利，德国，中国和韩国。索怕恰克还在天主教，福音，基督长老会，以及犹太教堂等各类教堂中有过独奏音乐会。</p>
 			<p>在2010-2012期间他曾被交换到韩国大邱启明-肖邦大学中作为教授执教，现在他是华沙肖邦音乐大学的一名助理教授。</p>
-			<br />
+			<br /> -->
+			<?php get_bio('CHI') ?>
+
 		</div>
 		<!-- Contents of fifth window -->
 		<div id="fifth-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | JPN</div>
-			<br>
+			<!-- <br>
 			<h1>Radosław Sobczak</h1>
 			<p>Radosław Sobczak(ラドスワフ・ソブチャク)</p>
 			<p>1981年、ポーランドのピシュで生まれる。エドワード・ボラニン氏に師事し、ワルシャワショパン音楽大学を卒業。ヴィクター・マカロフ氏の全額奨学金でピアノ教育を終える。2008年、ポーランドのポズナン市で行われたハリーナ・チェルニー＝ステファンスカ追悼ピアノコンクールにて第２位。</p>
@@ -112,8 +121,9 @@
 			<p>2002年、初めてのツアーを上海コンサートホールに依頼され、中国の７都市で公演。同年、ポーランドがEUに加盟した際のストラスブールで行われた特別コンサートにて演奏。2007年12月、ワルシャワのオペラ座で行われたニューイヤーガラコンサートに出演。2011年、インコリアン交響楽団40周年記念の際、韓国釜山でチャイコフスキーピアノコンチェルト第一番を録音。これまでに、ポーランド、アメリカ、スイス、チェコ、イスラエル、パレスチナ、オーストラリア、フランス、サウジアラビア、ロシア、イタリア、ドイツ、中国、韓国で演奏。</p>
 			<p>彼はキリスト教徒、複音主義者、長老派の教会、そしてユダヤ教徒の集会で行われるリサイタルなど数多くの場で演奏。</p>
 			<p>2010年から2012年の間、ショパン音楽大学と提携している韓国の大学にて教授を務める。テオドル・レシェティツキ音楽社会ワルシャワの一員。</p>
-			<p>現在、教授の助手としてワルシャワショパン音楽大学で指導をしてい
-a.button {
+			<p>現在、教授の助手としてワルシャワショパン音楽大学で指導をしている。</p>
+			<br /> -->
+			<?php get_bio('JPN') ?>
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>

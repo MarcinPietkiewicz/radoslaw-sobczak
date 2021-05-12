@@ -161,4 +161,20 @@ function send_confirmation_email($catalog = '') {
         header('Location: http://www.radoslawsobczak.com/test2/error.php');
     }
   }
+
+
+function get_bio($language){
+  echo ('działa - '.$language);
+}
+
+
+
+
+
+
+
+
+
+
+
 ?>
