@@ -23,8 +23,7 @@ exit;
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="contacts" style="color:white;">Wersja - <?php read_file_name('contact'); ?></label><br><br>
-    <textarea style="width:100%" id="contacts" name="contacts" rows="12" cols="60">
-    <?php
+    <textarea style="width:100%" id="contacts" name="contacts" rows="12" cols="60"><?php
       read_file('contact');
       ?></textarea><br>
       <label style="color:white;" for="email">Podaj mejla na który przesłać potwierdzenie:</label>

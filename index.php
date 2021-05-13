@@ -38,7 +38,7 @@
 		</div>
 		<!-- Contents of second window -->
 		<div id="second-popup" class="mfp-hide white-popup">
-			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG </a>| POL
+			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG </a>| POL |
 				<a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
 			<?php html_bio_from_txt_file('POL') ?>
 
