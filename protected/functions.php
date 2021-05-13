@@ -209,15 +209,12 @@ function html_bio_from_txt_file($language = '', $catalog = 'bio'){
   }
   echo '<br>';
 }
-
-
-
-
-
-
-
-
-
-
+// update protected file with new email if changed
+function change_secondary_email_in_pass_file($new_email) {
+  $data = explode("\n", rtrim(file_get_contents('protected/password.php')));
+  $data[9] = "\$second_email = '".$_POST[$new_email]."';";
+  $data = implode("\n", $data);
+  file_put_contents('protected/password.php', $data);
+}
 
 ?>

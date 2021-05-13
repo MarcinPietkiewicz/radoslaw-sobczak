@@ -19,6 +19,7 @@ exit;
     <div id="title">Edytuj bio:</div>
     <br>
     <?php include 'protected/functions.php' ?>
+    <?php include 'protected/password.php' ?>
 
     <!-- change contents form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -26,8 +27,13 @@ exit;
       <textarea id="bio" style="width:100%" name="bio" rows="30" cols="60"><?php
                                                                   read_file('bio');
                                                                   ?></textarea><br>
-      <label style="color:white;" for="email">Podaj mejla na który przesłać potwierdzenie:</label>
-      <input style="width:60%;" id="email" name="email" type="text"><br><br>
+
+
+      <label style="color:white;" for="email">Email zapisu zmian:</label>
+      <input id="email" name="email" type="text" value="<?php echo $second_email ?>" readonly />
+      <label style="color:white;" for="changeEmail">Zmień email: </label>
+      <input type="checkbox" id="changeEmail" />
+
       <input style="width:100%;" type="submit" name="change" class="button" value="Zapisz zmiany i wyślij potwierdzenie mejlem" /><br>
     </form>
     <form method="post">
@@ -47,11 +53,13 @@ exit;
     if (array_key_exists('read_dir', $_POST)) {
     } else if (array_key_exists('change', $_POST)) {
       write_file('bio','bio');
+      change_secondary_email_in_pass_file('email');
       send_confirmation_email('bio');
     } else if (array_key_exists('read_selected_file', $_POST)) {
       read_selected_file();
     } 
     ?>
   </div>
+  <script src="assets/myscript.js"></script>
 </body>
 </html>
