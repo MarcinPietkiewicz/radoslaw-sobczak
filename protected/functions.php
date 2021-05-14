@@ -90,25 +90,13 @@ function move_to_edit() {
 // read most current file contents to modal
 function read_file_to_concert_modal($catalog) {
     $contents = get_newest_file_content($catalog);
-    $sections = preg_split('/\R{2}/', $contents);
-    foreach ($sections as $section)
-    {
-      $lines = preg_split('/\R/', $section); 
-      $counter = 0;
-      foreach ($lines as $line)
-      {
-        if ($counter == 0)
-        {
-          echo '<p><b>'.$line.'</b></p>';
-          $counter++;
-          continue;
-        }
-        echo $line.'<br>';
-      }
-      echo '<br>';
-
-    }
+    print_concert_html($contents);
   }
+// for now concert modal html uses the same formatting as concert, but it's easy to change it here
+function read_file_to_contact_modal($catalog){
+  read_file_to_concert_modal($catalog);
+}
+
 // convert events file text to html
 function convert_events_text_to_html($post_obj) {
   $html = '';
@@ -165,8 +153,25 @@ function send_confirmation_email($post_obj = '') {
         header('Location: http://www.radoslawsobczak.com/test2/error.php');
     }
   }
-function html_bio_from_txt_file($language = '', $catalog){
+function read_file_to_bio_modal($language = '', $catalog){
   $contents = get_newest_file_content($catalog);
+  print_bio_html($contents, $language);
+}
+// update protected file with new email if changed
+function change_secondary_email_in_pass_file($new_email) {
+  $data = explode("\n", rtrim(file_get_contents('protected/password.php')));
+  $data[9] = "\$second_email = '".$_POST[$new_email]."';";
+  $data = implode("\n", $data);
+  file_put_contents('protected/password.php', $data);
+}
+  // read newest file per timestamp name from given directory and output contents
+function get_newest_file_content($dir){
+  $files = scandir('protected/'.$dir, 1);
+  $contents = file_get_contents('protected/'.$dir.'/'.$files[0]);
+  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
+  return $contents;
+}
+function print_bio_html($contents, $language){
   $sections = preg_split('/\R{2}/', $contents);
   echo '<br>';
   foreach ($sections as $section)
@@ -193,18 +198,26 @@ function html_bio_from_txt_file($language = '', $catalog){
   }
   echo '<br>';
 }
-// update protected file with new email if changed
-function change_secondary_email_in_pass_file($new_email) {
-  $data = explode("\n", rtrim(file_get_contents('protected/password.php')));
-  $data[9] = "\$second_email = '".$_POST[$new_email]."';";
-  $data = implode("\n", $data);
-  file_put_contents('protected/password.php', $data);
+function print_concert_html($contents){
+  $sections = preg_split('/\R{2}/', $contents);
+  foreach ($sections as $section)
+  {
+    $lines = preg_split('/\R/', $section); 
+    $counter = 0;
+    foreach ($lines as $line)
+    {
+      if ($counter == 0)
+      {
+        echo '<p><b>'.$line.'</b></p>';
+        $counter++;
+        continue;
+      }
+      echo $line.'<br>';
+    }
+    echo '<br>';
+
+  }
 }
-  // read newest file per timestamp name from given directory and output contents
-function get_newest_file_content($dir){
-  $files = scandir('protected/'.$dir, 1);
-  $contents = file_get_contents('protected/'.$dir.'/'.$files[0]);
-  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
-  return $contents;
-}
+
+
 ?>

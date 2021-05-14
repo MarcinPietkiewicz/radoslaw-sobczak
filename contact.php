@@ -6,6 +6,6 @@
     <br>
 
     <?php include 'protected/functions.php'; 
-    read_file_to_concert_modal('contact') ?>
+    read_file_to_contact_modal('contact'); ?>
 <br>
 </div>

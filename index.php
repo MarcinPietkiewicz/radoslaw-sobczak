@@ -32,7 +32,7 @@
 		<div id="first-popup" class="mfp-hide white-popup">
 			<div class="jezyki">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-		<?php html_bio_from_txt_file('ENG','bio') ?>
+		<?php read_file_to_bio_modal('ENG','bio') ?>
 
 
 		</div>
@@ -40,28 +40,28 @@
 		<div id="second-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG </a>| POL |
 				<a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<?php html_bio_from_txt_file('POL','bio') ?>
+			<?php read_file_to_bio_modal('POL','bio') ?>
 
 		</div>
 		<!-- Contents of third window -->
 		<div id="third-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| KOR | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<?php html_bio_from_txt_file('KOR','bio') ?>
+			<?php read_file_to_bio_modal('KOR','bio') ?>
 
 		</div>
 		<!-- Contents of fourth window -->
 		<div id="fourth-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | CHI | <a href="#fifth-popup" class="fifth-popup-link">JPN</a></div>
-			<?php html_bio_from_txt_file('CHI','bio') ?>
+			<?php read_file_to_bio_modal('CHI','bio') ?>
 
 		</div>
 		<!-- Contents of fifth window -->
 		<div id="fifth-popup" class="mfp-hide white-popup">
 			<div class="jezyki"><a href="#first-popup" class="first-popup-link">ENG</a> | <a href="#second-popup" class="second-popup-link">POL</a>
 				| <a href="#third-popup" class="third-popup-link">KOR</a> | <a href="#fourth-popup" class="fourth-popup-link">CHI</a> | JPN</div>
-			<?php html_bio_from_txt_file('JPN','bio') ?>
+			<?php read_file_to_bio_modal('JPN','bio') ?>
 		</div>
 		<br><br><br><br><br><br>
 		<div class="stopka"><a href="https://github.com/MarcinPietkiewicz" target="_blank">Web design by Marcin Pietkiewicz</a>
