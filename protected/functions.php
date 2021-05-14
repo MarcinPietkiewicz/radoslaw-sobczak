@@ -2,9 +2,7 @@
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
-// read files from catalog to option list
-function read_directory_to_option_list($catalog = 'concerts') {
-  // $files = scandir('protected/concerts');
+function read_directory_to_option_list($catalog) {
   $files = scandir('protected/'.$catalog);
   // ommit . and .. from catalog items and display only 8 most recent files
   $arr_length = count($files);
@@ -26,13 +24,10 @@ function read_directory_to_option_list($catalog = 'concerts') {
   } 
 }
 // read file contents
-function read_file($catalog = 'concerts') {
+function read_file($catalog) {
 $selected_value = $_POST['filenames'];
 if ($selected_value == ''){
-  // read newest file per timestamp name
-  $files = scandir('protected/'.$catalog, 1);
-  $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
-  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
+  $contents = get_newest_file_content($catalog);
   echo $contents;
   }
   else {
@@ -41,8 +36,7 @@ if ($selected_value == ''){
   echo $contents;
   }
 }
-// read loaded file name
-function read_file_name($catalog = 'concerts') {
+function read_file_name($catalog) {
   $selected_value = $_POST['filenames'];
   if ($selected_value == ''){
     // read newest file per timestamp name
@@ -94,11 +88,8 @@ function move_to_edit() {
   }
 }
 // read most current file contents to modal
-function read_file_to_concert_modal($catalog = 'concerts') {
-    // read newest file per timestamp name
-    $files = scandir('protected/'.$catalog, 1);
-    $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
-    $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
+function read_file_to_concert_modal($catalog) {
+    $contents = get_newest_file_content($catalog);
     $sections = preg_split('/\R{2}/', $contents);
     foreach ($sections as $section)
     {
@@ -145,7 +136,6 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 function send_confirmation_email($post_obj = '') {
   require 'password.php';
-  // $additional_email = $_POST['email'] ? $_POST['email'] : '';
   $additional_email = $_POST['email'] ? $_POST['email'] : false;
   $utf8_text = mb_convert_encoding($_POST[$post_obj], 'HTML-ENTITIES', "UTF-8");
   $html = convert_events_text_to_html($utf8_text);
@@ -175,14 +165,8 @@ function send_confirmation_email($post_obj = '') {
         header('Location: http://www.radoslawsobczak.com/test2/error.php');
     }
   }
-
-
-function html_bio_from_txt_file($language = '', $catalog = 'bio'){
-  // read newest file per timestamp name
-  $files = scandir('protected/'.$catalog, 1);
-  $contents = file_get_contents('protected/'.$catalog.'/'.$files[0]);
-  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
-  
+function html_bio_from_txt_file($language = '', $catalog){
+  $contents = get_newest_file_content($catalog);
   $sections = preg_split('/\R{2}/', $contents);
   echo '<br>';
   foreach ($sections as $section)
@@ -216,5 +200,11 @@ function change_secondary_email_in_pass_file($new_email) {
   $data = implode("\n", $data);
   file_put_contents('protected/password.php', $data);
 }
-
+  // read newest file per timestamp name from given directory and output contents
+function get_newest_file_content($dir){
+  $files = scandir('protected/'.$dir, 1);
+  $contents = file_get_contents('protected/'.$dir.'/'.$files[0]);
+  $contents = mb_convert_encoding($contents, 'HTML-ENTITIES', "UTF-8");
+  return $contents;
+}
 ?>
