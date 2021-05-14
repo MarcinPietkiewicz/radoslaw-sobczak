@@ -10,9 +10,8 @@ exit;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel edycji</title>
-  <link rel="stylesheet" href="assets/all.min.css" />
-  <link rel="stylesheet" href="assets/mystyle.css" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="assets/edit.css">
+
 </head>
 <body>
   <div class="kontener">
@@ -26,7 +25,8 @@ exit;
     </ul>
 </nav>
 </div>
-<div class="under"><a class="button" href="logout.php">Wyloguj...</a></div>
+<a class="button" href="logout.php">Wyloguj...</a></div>
+<a class="button" href="index.php">Strona główna</a></div>
 
 </body>
 </html>
