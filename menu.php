@@ -15,18 +15,16 @@ exit;
 </head>
 <body>
   <div class="kontener">
-    <div id="title">Wybierz element do edycji:</div>
-    <br><br>
-    <nav>
-    <ul>
-    <li><a href="change-concerts.php">Program koncertów</a></li>
-    <li><a href="change-contact.php">Dane kontaktowe</a></li>
-    <li><a href="change-bio.php">Biografia</a></li>
-    </ul>
-</nav>
+    <div id="title">Menu edycji</div>
+        <nav id="navigation">
+            <a href="change-concerts.php">Program koncertów</a>
+            <a href="change-contact.php">Dane kontaktowe</a>
+            <a href="change-bio.php">Biografia</a>
+        </nav>
+    <div id="exit-buttons">
+        <a class="button" href="index.php">Strona główna</a>
+        <a id="exit" href="logout.php">Wyloguj...</a>
+    </div>
 </div>
-<a class="button" href="logout.php">Wyloguj...</a></div>
-<a class="button" href="index.php">Strona główna</a></div>
-
 </body>
 </html>
