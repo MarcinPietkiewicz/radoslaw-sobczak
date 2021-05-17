@@ -6,7 +6,7 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.kontener {
+.menu {
     /* background-color: #212e3b; */
     margin: 100px auto;
     max-width: 600px;
@@ -14,10 +14,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: red; */
 }
 
-#title {
+.menu #title {
     font-size: 30px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -25,7 +24,7 @@ body {
     margin: 30px 0px;
 }
 
-#navigation {
+.menu #navigation {
     display: flex;
     width: 100%;
     background-color: #34495e;
@@ -34,31 +33,29 @@ body {
     box-shadow: 0px 0px 17px -5px rgba(0, 0, 0, 0.2);
 }
 
-#navigation a {
+.menu #navigation a {
     background-color: #34495e;
     text-decoration: none;
     color: white;
     font-size: 24px;
     padding: 10px;
     border-radius: 10px;
-    /* text-transform: uppercase; */
 }
 
-#navigation a:hover {
+.menu #navigation a:hover {
     color: greenyellow;
 }
 
-#exit-buttons {
+.menu #exit-buttons {
     margin-top: 30px;
     display: flex;
     background-color: #34495e;
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0px 0px 17px -5px rgba(0, 0, 0, 0.2);
-
 }
 
-#exit-buttons .button {
+.menu #exit-buttons .button {
     text-decoration: none;
     color: white;
     font-size: 24px;
@@ -66,8 +63,7 @@ body {
     border-radius: 10px;
 }
 
-
-#exit-buttons #exit {
+.menu #exit-buttons #exit {
     background-color: #e84c3d;
     color: white;
     text-decoration: none;
@@ -76,11 +72,11 @@ body {
     border-radius: 10px;
 }
 
-#exit-buttons .button:hover {
+.menu #exit-buttons .button:hover {
     color: greenyellow;
 }
 
-#exit-buttons #exit:hover {
+.menu #exit-buttons #exit:hover {
     color: rgb(248, 230, 172);
 }
 
@@ -90,27 +86,27 @@ body {
         text-align: center;
     }
 
-    #navigation {
+    .menu #navigation {
         flex-direction: column;
         align-items: center;
     }
 
-    #navigation a {
+    .menu #navigation a {
         width: 100%;
         box-sizing: border-box;
     }
 
-    #exit-buttons {
+    .menu #exit-buttons {
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
 
-    #exit-buttons .button {
+    .menu #exit-buttons .button {
         width: 100%;
     }
 
-    #exit-buttons #exit {
+    .menu #exit-buttons #exit {
         box-sizing: border-box;
         width: 100%;
     }
@@ -118,18 +114,18 @@ body {
 
 @media (max-width:550px) {
 
-    #exit-buttons .button,
-    #exit-buttons #exit,
-    #navigation a {
+    .menu #exit-buttons .button,
+    .menu #exit-buttons #exit,
+    .menu #navigation a {
         font-size: 15px;
         padding: 15px 0px;
     }
 
-    #title {
+    .menu #title {
         font-size: 18px;
     }
 
-    .kontener {
+    .menu {
         margin: 20px auto;
     }
 

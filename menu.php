@@ -14,7 +14,7 @@ exit;
 
 </head>
 <body>
-  <div class="kontener">
+  <div class="menu">
     <div id="title">Menu edycji</div>
         <nav id="navigation">
             <a href="change-concerts.php">Program koncertów</a>
