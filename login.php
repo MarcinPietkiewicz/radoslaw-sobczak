@@ -12,36 +12,37 @@ $_SESSION['Username']=$logins[$Username];
 header("location:menu.php");
 exit;
 } else {
-$msg="<span style='color:red'>Nieprawidłowe hasło</span>";
+$msg="<span>Nieprawidłowy login lub hasło</span>";
 }
 }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/edit.css">
+    <title>Login</title>
+</head>
+<body>
 <form action="" method="post" name="Login_Form">
-  <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
-    <?php if(isset($msg)){?>
-    <tr>
-      <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
-    </tr>
-    <?php } ?>
-    <tr>
-      <td colspan="2" align="center" valign="top"><h3>Login</h3></td>
-    </tr>
-    <tr>
-      <td align="right" valign="top">Nazwa użytkownika</td>
-      <td><input name="Username" type="text" class="Input"></td>
-    </tr>
-    <tr>
-      <td align="right">Hasło</td>
-      <td><input name="Password" type="password" class="Input"></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><input name="Submit" type="submit" value="Login"></td>
-      </form>
-      </tr>
-      <tr>
-      <td> </td>
-      <td><form action="index.php" method="post"><input type="submit" value="Powrót do strony głównej"></form></td>
-    </tr>
-  </table>
+  <div class="menu login">
+    <div id="login-title" >Login</div>
+    <div class="log-item">
+        <label for="Username">Nazwa </label>
+    <input name="Username" id="Username" type="text" class="Input">
+    </div>
+<div class="log-item">
+    <label for="Password">Hasło </label>
+<input name="Password" id="Password" type="password" class="Input">
+</div>
+<div id="optional-text"><?php echo $msg;?></div>
+<input id="login-btn" name="Submit" type="submit" value="Login">
+</form>
+    <div id="exit-buttons">
+        <a class="button" href="index.php">Powrót do strony głównej</a>
+    </div>
+</div>
+</body>
+</html>
