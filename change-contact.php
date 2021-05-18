@@ -18,7 +18,7 @@ exit;
     <div id="edit-title">Edycja kontaktów</div>
     <?php include 'protected/functions.php' ?>
     <?php include 'protected/password.php' ?>
-    <div id="version">Wersja - 19.05.2002<?php read_file_name('contact'); ?></div>
+    <div id="version">Wersja - <?php read_file_name('contact'); ?></div>
     <form id="refresh-form" method="post">
          <div id="loading-options">
             <input id="submit-list" type="submit" name="read_dir" class="button" value="Odśwież i wczytaj najnowszą wersję" /> 
