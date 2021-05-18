@@ -6,8 +6,8 @@ function read_directory_to_option_list($catalog) {
   $files = scandir('protected/'.$catalog);
   // ommit . and .. from catalog items and display only 8 most recent files
   $arr_length = count($files);
-  if ($arr_length>10){
-  $files = array_slice($files, -9, $arr_length);
+  if ($arr_length>15){
+  $files = array_slice($files, -14, $arr_length);
   }
   else {
     $files = array_slice($files, 2, $arr_length);
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = $_POST[$input];
   fwrite($new_file, $data);
   fclose($new_file);
-  echo "<br><br>Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!<br>";
+  echo "Nowa wersja została zapisana do pliku - ".($current_date_hour_filename)." i dodana do strony głównej!<br>";
   if ($_POST['email']){
   echo "Dodatkowy mejl wysłany na adres: ".$_POST['email'];
   }
@@ -78,7 +78,7 @@ function read_selected_file(){
     echo 'Error... file not found, loaded newest version to the text area...<br>Please choose a file from the list.';
   }
   else {
-    echo 'Found and loaded the file: '.$selected_value.' - everything is ok!:<br>';
+    echo 'Znaleziono i załadowano plik: '.$selected_value.' - wszystko ok!<br>';
   }
 }
 //secure login to edit website
