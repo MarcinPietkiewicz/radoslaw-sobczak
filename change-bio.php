@@ -9,56 +9,62 @@ exit;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edytuj program koncertów</title>
-  <link rel="stylesheet" href="assets/mystyle.css" type="text/css" />
-  <link rel="stylesheet" href="assets/all.min.css" />
+  <link rel="stylesheet" href="assets/edit.css">
+  <title>Edycja biografii</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="kontener">
-    <div id="title">Edytuj bio:</div>
-    <br>
+  <div class="menu edit">
+    <div id="edit-title">Edycja biografii</div>
     <?php include 'protected/functions.php' ?>
     <?php include 'protected/password.php' ?>
-
-    <!-- change contents form -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <label for="bio" style="color:white;">Wersja - <?php read_file_name('bio'); ?></label><br><br>
-      <textarea id="bio" style="width:100%" name="bio" rows="30" cols="60"><?php
-                                                                  read_file('bio');
-                                                                  ?></textarea><br>
-
-
-      <label style="color:white;" for="email">Email zapisu zmian:</label>
-      <input id="email" name="email" type="text" value="<?php echo $second_email ?>" readonly />
-      <label style="color:white;" for="changeEmail">Zmień email: </label>
-      <input type="checkbox" id="changeEmail" />
-
-      <input style="width:100%;" type="submit" name="change" class="button" value="Zapisz zmiany i wyślij potwierdzenie mejlem" /><br>
+    <div id="version">Wersja - <?php read_file_name('bio'); ?></div>
+    <form id="refresh-form" method="post">
+         <div id="loading-options">
+            <input id="submit-list" type="submit" name="read_dir" class="button" value="Odśwież i wczytaj najnowszą wersję" /> 
+            <div id="lub"> lub </div>
+            <select id="filenames" name="filenames">
+            <option value="">wybierz plik z listy</option>
+            <?php
+            read_directory_to_option_list('bio');
+            ?>
+            </select>
+            <input type="submit" name="read_selected_file" class="button" id="read-file" value="i wczytaj go" /><br><br>
+        </div>
     </form>
-    <form method="post">
-      <br><input type="submit" name="read_dir" class="button" value="Odśwież listę plików i wczytaj najnowszą wersję" /> <br>
-      <select id="filenames" name="filenames">
-        <option value="">Wybierz z listy...</option>
-        <?php
-        read_directory_to_option_list('bio');
-        ?>
-      </select>
-      <input type="submit" name="read_selected_file" class="button" value="Wczytaj" /><br><br>
+    
+    <div id="info-text">
+      <?php
+      if (array_key_exists('read_dir', $_POST)) {
+      } else if (array_key_exists('change', $_POST)) {
+        write_file('bio','bio');
+        change_secondary_email_in_pass_file('email');
+        send_confirmation_email('bio');
+      } else if (array_key_exists('read_selected_file', $_POST)) {
+        read_selected_file();
+      } 
+      ?>
+      </div>
+    <form id="edit-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+      <textarea id="change-area" id="bio" name="bio" rows="12" cols="60"><?php
+      read_file('bio');
+      ?></textarea>
+
+      <div id="conf">
+        <div id="button-cover">
+          <input type="checkbox" id="changeEmail" />
+          <label for="changeEmail">Zmień email potwierdzeń</label>
+        </div>
+        <input id="email" name="email" type="text" value="<?php echo $second_email ?>" readonly />
+      </div>
+        <input id="email-change-confirm" type="submit" name="change" class="button" value="Zapisz i wyślij emaila" />
     </form>
-    <a class="button" href="logout.php">Wyloguj...</a>
-    <a class="button" href="menu.php">Powrót do menu</a>
-    <br><br>
-    <?php
-    if (array_key_exists('read_dir', $_POST)) {
-    } else if (array_key_exists('change', $_POST)) {
-      write_file('bio','bio');
-      change_secondary_email_in_pass_file('email');
-      send_confirmation_email('bio');
-    } else if (array_key_exists('read_selected_file', $_POST)) {
-      read_selected_file();
-    } 
-    ?>
+  <div id="edit-exit-buttons">
+    <a target=_blank href="index.php">Sprawdź wygląd strony</a>
+    <a href="logout.php">Wyloguj...</a>
+    <a href="menu.php">Powrót do menu</a>
+  </div>
+    
   </div>
   <script src="assets/myscript.js"></script>
 </body>
