@@ -4,7 +4,7 @@ require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
 function read_directory_to_option_list($catalog) {
   $files = scandir('protected/'.$catalog);
-  // ommit . and .. from catalog items and display only 8 most recent files
+  // ommit . and .. from catalog items and display only 13 most recent files
   $arr_length = count($files);
   if ($arr_length>15){
   $files = array_slice($files, -14, $arr_length);
@@ -94,7 +94,15 @@ function read_file_to_concert_modal($catalog) {
   }
 // for now concert modal html uses the same formatting as concert, but it's easy to change it here
 function read_file_to_contact_modal($catalog){
-  read_file_to_concert_modal($catalog);
+  $contents = get_newest_file_content($catalog);
+  $contents = protect_email_mobile_against_bots($contents);  
+  print_concert_html($contents);
+}
+// insert <span>something</span> inside email addresses and telephone numbers to protect them against bots
+function protect_email_mobile_against_bots($contents){
+  $regex = "/[@]/i";
+    $contents = preg_replace($regex, "@<span class='zamazuj'>yahoo-</span>", $contents);
+  return $contents;
 }
 
 // convert events file text to html
