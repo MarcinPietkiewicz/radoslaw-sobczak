@@ -102,7 +102,9 @@ function read_file_to_contact_modal($catalog){
 function protect_email_mobile_against_bots($contents){
   $regex = "/[@]/i";
     $contents = preg_replace($regex, "@<span class='zamazuj'>yahoo-</span>", $contents);
-  return $contents;
+  $regexTwo = "/(\d{3})(\d{3})(\d{3})/";
+  $contents = preg_replace($regexTwo, "$1<span class='zamazuj'>243</span>$2<span class='zamazuj'>658</span>$3", $contents);
+    return $contents;
 }
 
 // convert events file text to html
