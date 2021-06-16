@@ -6,7 +6,7 @@ Live website: www.radoslawsobczak.com
 
 Main webpage | Responsive modal
 :-----------:|:----------------:
-![main](https://i.postimg.cc/k44Hrv8Z/radek0.png) | ![modal] (https://i.postimg.cc/NjqZyTq9/radek01.png)
+![main](https://i.postimg.cc/k44Hrv8Z/radek0.png) | ![modal](https://i.postimg.cc/NjqZyTq9/radek01.png)
 
 
 2. PHP with login section to update content of the website
